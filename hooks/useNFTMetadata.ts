@@ -20,6 +20,7 @@ export function useNFTMetadata(contractAddress: string, tokenID: string) {
   const { data, error, isLoading } = useSWR(
     [QueryKey.GetNFTMetadata, account.address, tokenID],
     async () => {
+      if (!contract) return null
       const isOwner = await contract
         .ownerOf(tokenID)
         .then((res: string) => res === account.address)
