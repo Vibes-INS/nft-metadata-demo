@@ -84,7 +84,9 @@ export const NFTDetail: React.FC<NFTDetailProps> = ({
         <Skeleton isLoaded={!isLoading} h="22px">
           <Heading fontSize="lg">
             {metadata?.name}
-            {data?.isOwner ? <Box as="span">{tokenID}</Box> : null}
+            <Box as="span" ml="2">
+              #{tokenID}
+            </Box>
           </Heading>
         </Skeleton>
         <SkeletonText
